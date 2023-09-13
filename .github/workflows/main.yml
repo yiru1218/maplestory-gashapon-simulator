@@ -29,7 +29,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4.3.0
         with:
-          python-version: '3.8'
+          python-version: '3.10.7' # newest
 
       # 安裝所需套件
       - name: Install dependencies
@@ -38,6 +38,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install pytest
+      
+      # 打開網頁會跑失敗 先下載 SSL 套件
+      - name: Install SSL Libraries
+        run: sudo apt-get install libssl-dev
 
       # 執行單元測試
       - name: Run unit tests
