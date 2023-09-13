@@ -39,9 +39,12 @@ jobs:
           pip install -r requirements.txt
           pip install pytest
       
-      # 打開網頁會跑失敗 先下載 SSL 套件
-      - name: Install SSL Libraries
-        run: sudo apt-get install libssl-dev
+      # 更新認證書
+      - name: Update CA certificates
+        run: |
+          sudo apt-get update 
+          sudo apt-get install --reinstall ca-certificates
+          sudo apt-get install libssl-dev
 
       # 執行單元測試
       - name: Run unit tests
