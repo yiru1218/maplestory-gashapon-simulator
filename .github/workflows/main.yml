@@ -1,0 +1,44 @@
+# This is a basic workflow to help you get started with Actions
+
+name: maplestory-gashapon-simulator-CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "test"
+  # test
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # 檢查 Code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # 設定 Python 環境
+      - name: Set up Python
+        uses: actions/setup-python@v4.3.0
+        with:
+          python-version: '3.8'
+
+      # 安裝所需套件
+      - name: Install dependencies
+        run: |
+          cd ./py-api # 進入 py-api folder
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest
+
+      # 執行單元測試
+      - name: Run unit tests
+        run: pytest py-api/test_app.py
