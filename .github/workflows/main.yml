@@ -49,7 +49,7 @@ jobs:
         run: |
           python - <<EOF
           import ssl
-          ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_3)
+          ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_1)
           EOF
 
       # 執行單元測試
