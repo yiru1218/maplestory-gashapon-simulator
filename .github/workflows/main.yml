@@ -45,12 +45,12 @@ jobs:
       #     sudo apt-get update 
       #     sudo apt-get install --reinstall ca-certificates
       #     sudo apt-get install libssl-dev
-      - name: Set TLS/SSL version
-        run: |
-          python - <<EOF
-          import ssl
-          ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_1)
-          EOF
+      # - name: Set TLS/SSL version
+      #   run: |
+      #     python - <<EOF
+      #     import ssl
+      #     ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_1)
+      #     EOF
 
       # 執行單元測試
       - name: Run unit tests
