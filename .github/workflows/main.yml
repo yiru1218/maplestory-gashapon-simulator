@@ -41,7 +41,10 @@ jobs:
       
       # 更新認證書
       - name: Update CA certificates
-        run: sudo apt-get update && sudo apt-get install --reinstall ca-certificatessudo apt-get install libssl-dev
+        run: |
+          sudo apt-get update 
+          sudo apt-get install --reinstall ca-certificatessudo 
+          sudo apt-get install libssl-dev
 
       # 執行單元測試
       - name: Run unit tests
