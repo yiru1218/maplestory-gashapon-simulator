@@ -3,17 +3,24 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 import requests
 import pandas as pd
-import ssl
+import http.client
 
 app = Flask(__name__)
 CORS(app)
 
-
 ### 時尚隨機箱 ###
-fashion_box_html = requests.get("https://tw-event.beanfun.com/MapleStory/eventad/EventAD.aspx?EventADID=8373", 
-                                verify=True, tls_version=ssl.PROTOCOL_TLSv1_2)
-fashion_box_html_content = fashion_box_html.text
-fashion_box_table = pd.read_html(fashion_box_html_content)
+
+# fashion_box_html = requests.get("https://tw-event.beanfun.com/MapleStory/eventad/EventAD.aspx?EventADID=8373", 
+#                                 verify=True, tls_version=ssl.PROTOCOL_TLSv1_2)
+# fashion_box_html_content = fashion_box_html.text
+# fashion_box_table = pd.read_html(fashion_box_html_content)
+fashionbox_conn = http.client.HTTPSConnection("tw.beanfun.com")
+fashionbox_conn.request("GET", "/beanfuncommon/EventAD_Mobile/EventAD.aspx?EventADID=8373")
+fashionbox_response = fashionbox_conn.getresponse()
+fashionbox_html = fashionbox_response.read()
+fashionbox_conn.close()
+fashion_box_table = pd.read_html(fashionbox_html)
+
 # 不拿第一排
 fashion_box_df = fashion_box_table[0][1:]
 fashion_box_df.columns = ['item_name', 'prob_nums']
