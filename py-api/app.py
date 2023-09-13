@@ -10,7 +10,7 @@ CORS(app)
 
 ### 時尚隨機箱 ###
 
-fashion_box_html = requests.get("https://tw-event.beanfun.com/MapleStory/eventad/EventAD.aspx?EventADID=8373", verify=False)
+fashion_box_html = requests.get("https://tw-event.beanfun.com/MapleStory/eventad/EventAD.aspx?EventADID=8373")
 fashion_box_html_content = fashion_box_html.text
 fashion_box_table = pd.read_html(fashion_box_html_content)
 
@@ -24,7 +24,7 @@ fashion_box_pool.df = fashion_box_df
 
 
 ### 寵物隨機箱 ###
-pet_box_table = pd.read_html("https://tw-event.beanfun.com/MapleStory/eventad/EventAD.aspx?EventADID=8374", verify=False)
+pet_box_table = pd.read_html("https://tw-event.beanfun.com/MapleStory/eventad/EventAD.aspx?EventADID=8374")
 # 不拿第一排
 pet_box_df = pet_box_table[0][1:]
 pet_box_df.columns = ['item_name', 'prob_nums']
