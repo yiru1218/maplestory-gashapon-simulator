@@ -35,8 +35,10 @@ jobs:
       - name: Install dependencies
         run: |
           cd ./py-api # 進入 py-api folder
+          python -m pip install --upgrade pip
           pip install -r requirements.txt
+          pip install pytest
 
       # 執行單元測試
       - name: Run unit tests
-        run: pytest
+        run: pytest test_app.py
