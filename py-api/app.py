@@ -3,13 +3,15 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 import requests
 import pandas as pd
+import ssl
 
 app = Flask(__name__)
 CORS(app)
 
 
 ### 時尚隨機箱 ###
-fashion_box_html = requests.get("https://tw-event.beanfun.com/MapleStory/eventad/EventAD.aspx?EventADID=8373")
+fashion_box_html = requests.get("https://tw-event.beanfun.com/MapleStory/eventad/EventAD.aspx?EventADID=8373", 
+                                verify=True, tls_version=ssl.PROTOCOL_TLSv1_2)
 fashion_box_html_content = fashion_box_html.text
 fashion_box_table = pd.read_html(fashion_box_html_content)
 # 不拿第一排
