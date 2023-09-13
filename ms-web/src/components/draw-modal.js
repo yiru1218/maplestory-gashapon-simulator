@@ -1,6 +1,6 @@
 import React from 'react';
 import { Modal, Button, Container, Col, Row } from 'react-bootstrap';
-import gm_img from '../assets/gm.jpg';
+import gm_img from '../assets/web-gm.jpg';
 
 const DrawModal = ({ show, onHide, showContent, showLinkText, onLinkClick }) => {
     return (

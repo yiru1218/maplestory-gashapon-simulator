@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { PETBOX_IMG_API_URL, PETBOX_DRAW_API_URL } from "../../api.js";
 import parse from "html-react-parser";
 import DrawModal from '../draw-modal.js'
 import { Button, Card, OverlayTrigger, Tooltip } from 'react-bootstrap';
