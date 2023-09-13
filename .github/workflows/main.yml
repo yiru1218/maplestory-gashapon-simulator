@@ -33,7 +33,9 @@ jobs:
 
       # 安裝所需套件
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: |
+          cd ./py-api # 進入 py-api folder
+          pip install -r requirements.txt
 
       # 執行單元測試
       - name: Run unit tests
