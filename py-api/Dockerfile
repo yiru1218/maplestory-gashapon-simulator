@@ -5,7 +5,7 @@ FROM python:3
 WORKDIR /app
 
 # 複製檔案到容器
-COPY ./py-api/app.py .
+COPY ./py-api/ .
 
 # 安裝需要套件
 RUN pip install -r ./py-api/requirements.txt
