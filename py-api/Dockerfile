@@ -12,8 +12,5 @@ COPY requirements.txt ./
 # 安裝需要套件
 RUN pip install -r requirements.txt
 
-# Expose App 使用的端口
-EXPOSE 8080
-
 # 定義容器啟動後執行的 Command
 CMD ["python", "app.py"]
