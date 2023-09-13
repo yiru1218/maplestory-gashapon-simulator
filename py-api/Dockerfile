@@ -5,10 +5,10 @@ FROM python:3
 WORKDIR /app
 
 # 複製檔案到容器
-COPY ./py-api/ .
+COPY . .
 
 # 安裝需要套件
-RUN pip install -r ./py-api/requirements.txt
+RUN pip install -r requirements.txt
 
 # Expose App 使用的端口
 EXPOSE 8080
