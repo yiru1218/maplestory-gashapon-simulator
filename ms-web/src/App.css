@@ -2,15 +2,50 @@
   text-align: center;
 }
 
-.award-item {
-  color: #9932CC;
+body {
+  background-color: #4d4d4d !important;
+  min-height: 100vh;
 }
 
-body {
-  background-image: url(https://i.imgur.com/gaJXPxn.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+/* .navbar>.container {
+  margin-left: 0 !important;
+} */
+
+.item-count {
+  margin: auto;
+}
+
+.store-container {
+  max-width: 1320px;
+  /* top、bottom: 20px , left、right: auto => means center*/
+  margin: 30px auto;
+}
+
+.buy-box {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+}
+
+.chat-box {
+  padding: 10px;
+  margin-top: 100px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+
+.award-item {
+  color: #9932CC;
 }
 
 li {
@@ -31,13 +66,6 @@ li {
 .market-box>.card-body>p {
   margin: 2px;
   font-size: 14px;
-}
-
-.box-count-text {
-  color: white;
-  font-size: 15px;
-  /*-webkit-text-stroke: 1.5px black;*/
-  text-shadow:-1px 0 black,0 1px black,1px 0 black,0 -1px black;
 }
 
 .background {
