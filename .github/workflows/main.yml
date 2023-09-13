@@ -41,4 +41,4 @@ jobs:
 
       # 執行單元測試
       - name: Run unit tests
-        run: pytest test_app.py
+        run: pytest py-api/test_app.py
