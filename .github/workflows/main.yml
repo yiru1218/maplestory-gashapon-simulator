@@ -18,7 +18,7 @@ jobs:
   # This workflow contains a single job called "test"
   # test
   test:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     
     steps:
       # 檢查 Code
