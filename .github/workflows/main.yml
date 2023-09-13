@@ -43,7 +43,7 @@ jobs:
       - name: Update CA certificates
         run: |
           sudo apt-get update 
-          sudo apt-get install --reinstall ca-certificatessudo 
+          sudo apt-get install --reinstall ca-certificates
           sudo apt-get install libssl-dev
 
       # 執行單元測試
