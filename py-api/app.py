@@ -1,7 +1,6 @@
 from itempool import ItemPool
 from flask import Flask, jsonify
 from flask_cors import CORS
-import requests
 import pandas as pd
 
 app = Flask(__name__)
@@ -9,9 +8,7 @@ CORS(app)
 
 ### 時尚隨機箱 ###
 
-fashion_box_html = requests.get("https://tw-event.beanfun.com/MapleStory/eventad/EventAD.aspx?EventADID=8373")
-fashion_box_html_content = fashion_box_html.text
-fashion_box_table = pd.read_html(fashion_box_html_content)
+fashion_box_table = pd.read_html("https://tw-event.beanfun.com/MapleStory/eventad/EventAD.aspx?EventADID=8373")
 
 # 不拿第一排
 fashion_box_df = fashion_box_table[0][1:]
