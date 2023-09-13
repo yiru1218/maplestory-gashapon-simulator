@@ -2,10 +2,6 @@ from itempool import ItemPool
 from flask import Flask, jsonify
 from flask_cors import CORS
 import pandas as pd
-# github CI 會跑錯 加一下
-import ssl
-# 設定 TLS/SSL 協議版本
-ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
 
 app = Flask(__name__)
 CORS(app)
