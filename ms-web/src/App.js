@@ -5,11 +5,16 @@ import CustomizeNavBar from './components/nav-bar/nav-bar';
 import { FashionBox, HandleClickFashionBox } from './components/fashion-box/fashion-box-redux';
 import { PetBox, HandleClickPetBox } from './components/pet-box/pet-box';
 import ChatBox from './components/chat-box/chat-box';
+import { Helmet } from 'react-helmet';
 
 
 function App() {
 
     return (
+        <>
+        <Helmet>
+            <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+        </Helmet>
         <body>
             <CustomizeNavBar />
             <div className='store-container'>
@@ -31,8 +36,8 @@ function App() {
                 <br></br>
                 圖片皆取自<a href='http://www.gametsg.com/maplestory/'>新楓之谷透視鏡</a>
             </div>
-            <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
         </body>
+        </>
     )
 }
 
