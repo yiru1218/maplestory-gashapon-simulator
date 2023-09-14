@@ -3,3 +3,4 @@
 # dependencies
 /ms-web/node_modules
 /py-api/config.py
+/py-api/app_local_test.py
