@@ -9,7 +9,7 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-
+    
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -18,7 +18,7 @@ jobs:
   # This workflow contains a single job called "test"
   # test
   test:
-    runs-on: ubuntu-23.04
+    runs-on: ubuntu-latest
     env:
       MONGO_URI: ${{ secrets.MONGO_URI }} # 引用 Repository secrets
     steps:
@@ -38,8 +38,9 @@ jobs:
           cd ./py-api # 進入 py-api folder
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+          pip install --upgrade pymongo
           pip install pytest
-
+          
       # 執行單元測試
       - name: Run unit tests
         run: pytest py-api/test_app.py
