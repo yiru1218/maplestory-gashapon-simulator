@@ -1,5 +1,7 @@
 import unittest
 from app import app
+import pymongo
+import os
 
 # 測試用 class 需要繼承自unittest.TestCase，以便使用unittest測試框架的功能
 class TestAPP(unittest.TestCase):
@@ -10,6 +12,22 @@ class TestAPP(unittest.TestCase):
     # 測試完清除 app
     def tearDown(self):
         pass
+
+    def test_mongodb_connection(self):
+
+        try:
+            # 連到 mongodb
+            mongo_uri = os.environ.get("MONGO_URI")
+            client = pymongo.MongoClient(mongo_uri)
+            db = client.get_database()
+            collection_names = db.list_collection_names()
+
+            # 檢查是否成功連線，並至少有一個 collection
+            self.assertTrue(collection_names)
+
+        except Exception as e:
+            # 連接失敗
+            self.fail(f"MongoDB connection test failed: {str(e)}")
 
     # 測試 home page route
     def test_home_route(self):
