@@ -12,7 +12,7 @@ import { addAward, addFashionAward } from "../../redux/reducers/award-list/actio
 // useSelector 讀取 data
 // useDispatch 操作 data
 import { useSelector, useDispatch } from 'react-redux';
-
+import fashion_box from '../../assets/fashion-box.png'
 
 // 購買時尚箱並計算價錢
 const FashionBox = () => {
@@ -21,7 +21,7 @@ const FashionBox = () => {
     return (
         <Card className='market-box' style={{ width: '150px' }}>
             <Card.Body>
-                <img src='http://gametsg.techbang.com/maplestory/icon_item/cd1d4ea695bbbd48cdb8642b57696cd6.png'
+                <img src={fashion_box}
                     width="80px"
                     height="80px"
                     alt="時尚隨機箱"
@@ -138,7 +138,7 @@ const HandleClickFashionBox = () => {
                 }
             >
                 <div className="icon-img">
-                    <img src='http://gametsg.techbang.com/maplestory/icon_item/cd1d4ea695bbbd48cdb8642b57696cd6.png'
+                    <img src={fashion_box}
                         alt="時尚隨機箱"
                         onDoubleClick={() => {
                             doubleClickFashionBoxIcon();

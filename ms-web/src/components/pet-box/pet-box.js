@@ -11,6 +11,7 @@ import { addAward, addPetAward } from "../../redux/reducers/award-list/actions.j
 // useSelector 讀取 data
 // useDispatch 操作 data
 import { useSelector, useDispatch } from 'react-redux';
+import pet_box from '../../assets/pet-box.png'
 
 // 購買時尚箱並計算價錢
 const PetBox = () => {
@@ -19,7 +20,7 @@ const PetBox = () => {
     return (
         <Card className='market-box' style={{ width: '150px' }}>
             <Card.Body>
-                <img src='http://www.gametsg.com/maplestory/icon_item/f566c35a6becd0be73183abad8b91c77.png'
+                <img src={pet_box}
                     width="80px"
                     height="80px"
                     alt="寵物隨機箱"
@@ -136,7 +137,7 @@ const HandleClickPetBox = () => {
                 }
             >
                 <div className="icon-img">
-                    <img src='http://www.gametsg.com/maplestory/icon_item/f566c35a6becd0be73183abad8b91c77.png'
+                    <img src={pet_box}
                         alt="寵物隨機箱"
                         onDoubleClick={() => {
                             doubleClickPetBoxIcon();
