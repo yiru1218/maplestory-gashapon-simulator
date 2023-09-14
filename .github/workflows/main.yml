@@ -18,7 +18,7 @@ jobs:
   # This workflow contains a single job called "test"
   # test
   test:
-    runs-on: ubuntu-lastest
+    runs-on: ubuntu-latest
     env:
       MONGO_URI: ${{ secrets.MONGO_URI }} # 引用 Repository secrets
     steps:
