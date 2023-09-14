@@ -3,6 +3,7 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 # import pandas as pd
 import pymongo
+import ssl
 # 上傳到 github repo 將 URI 存成環境變數
 import os
 
@@ -11,7 +12,7 @@ CORS(app)
 
 # 連 mongodb
 mongo_uri = os.environ.get("MONGO_URI")
-client = pymongo.MongoClient(mongo_uri)
+client = pymongo.MongoClient(mongo_uri, ssl=True, ssl_cert_reqs=ssl.CERT_NONE)
 try:
     client.admin.command('ping')
     print("Pinged your deployment. You successfully connected to MongoDB!")
