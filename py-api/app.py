@@ -3,7 +3,6 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 # import pandas as pd
 import pymongo
-import ssl
 # 上傳到 github repo 將 URI 存成環境變數
 import os
 
