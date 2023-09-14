@@ -31,7 +31,7 @@ function App() {
                 <br></br>
                 圖片皆取自<a href='http://www.gametsg.com/maplestory/'>新楓之谷透視鏡</a>
             </div>
-
+            <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
         </body>
     )
 }
