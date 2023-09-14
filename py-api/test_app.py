@@ -2,7 +2,7 @@ import unittest
 from app import app
 import pymongo
 import os
-import ssl
+
 
 # 測試用 class 需要繼承自unittest.TestCase，以便使用unittest測試框架的功能
 class TestAPP(unittest.TestCase):
@@ -19,7 +19,7 @@ class TestAPP(unittest.TestCase):
         try:
             # 連到 mongodb
             mongo_uri = os.environ.get("MONGO_URI")
-            client = pymongo.MongoClient(mongo_uri, ssl=True, ssl_cert_reqs=ssl.CERT_NONE)
+            client = pymongo.MongoClient(mongo_uri)
             client.admin.command('ping')
             print("Pinged your deployment. You successfully connected to MongoDB!")
 

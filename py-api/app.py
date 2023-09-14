@@ -12,7 +12,7 @@ CORS(app)
 
 # 連 mongodb
 mongo_uri = os.environ.get("MONGO_URI")
-client = pymongo.MongoClient(mongo_uri, ssl=True, ssl_cert_reqs=ssl.CERT_NONE)
+client = pymongo.MongoClient(mongo_uri)
 try:
     client.admin.command('ping')
     print("Pinged your deployment. You successfully connected to MongoDB!")
