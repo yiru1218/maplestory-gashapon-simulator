@@ -22,6 +22,7 @@ const PetBox = () => {
                 <img src='http://www.gametsg.com/maplestory/icon_item/f566c35a6becd0be73183abad8b91c77.png'
                     width="80px"
                     height="80px"
+                    alt="寵物隨機箱"
                 ></img>
                 <p>寵物隨機箱</p>
                 <p><s style={{ color: 'gray' }}>600樂豆點</s><span style={{ color: 'red' }}><b>(16%)</b></span></p>
@@ -73,7 +74,7 @@ const HandleClickPetBox = () => {
     const [itemUrlData, setItemUrl] = useState();
     // 渲染後取得一般獎項圖片的 url
     useEffect(() => {
-        axios.get('http://127.0.0.1:5000/pet-box-img-url')
+        axios.get(PETBOX_IMG_API_URL)
             .then((response) => {
                 // url list 存在 itemUrlData
                 setItemUrl(response.data.item_info);
@@ -85,7 +86,7 @@ const HandleClickPetBox = () => {
 
     // 渲染後先執行抽獎動作一次 => 避免第一次抽獎拿不到資料顯示 Null
     useEffect(() => {
-        axios.get('http://127.0.0.1:5000/draw-pet-box')
+        axios.get(PETBOX_DRAW_API_URL)
             .then((response) => {
                 // 不是 json 直接拿 response.data 
                 setItem(response.data);
@@ -93,7 +94,7 @@ const HandleClickPetBox = () => {
     }, []);
     // 小視窗彈出來後按抽獎
     const handleDrawPetBoxClick = () => {
-        axios.get('http://127.0.0.1:5000/draw-pet-box')
+        axios.get(PETBOX_DRAW_API_URL)
             .then((response) => {
                 // 不是 json 直接拿可以 response.data 
                 // 從 api 取得抽出的物品存在 item
@@ -136,6 +137,7 @@ const HandleClickPetBox = () => {
             >
                 <div className="icon-img">
                     <img src='http://www.gametsg.com/maplestory/icon_item/f566c35a6becd0be73183abad8b91c77.png'
+                        alt="寵物隨機箱"
                         onDoubleClick={() => {
                             doubleClickPetBoxIcon();
                         }}

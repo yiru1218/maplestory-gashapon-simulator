@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+// API
 import { FASHIONBOX_IMG_API_URL, FASHIONBOX_DRAW_API_URL } from "../../api.js";
 import parse from "html-react-parser";
 import DrawModal from '../draw-modal.js'
@@ -12,6 +13,7 @@ import { addAward, addFashionAward } from "../../redux/reducers/award-list/actio
 // useDispatch 操作 data
 import { useSelector, useDispatch } from 'react-redux';
 
+
 // 購買時尚箱並計算價錢
 const FashionBox = () => {
     const dispatch = useDispatch();
@@ -22,6 +24,7 @@ const FashionBox = () => {
                 <img src='http://gametsg.techbang.com/maplestory/icon_item/cd1d4ea695bbbd48cdb8642b57696cd6.png'
                     width="80px"
                     height="80px"
+                    alt="時尚隨機箱"
                 ></img>
                 <p>時尚隨機箱</p>
                 <p><s style={{ color: 'gray' }}>300樂豆點</s><span style={{ color: 'red' }}><b>(10%)</b></span></p>
@@ -73,7 +76,7 @@ const HandleClickFashionBox = () => {
     const [itemUrlData, setItemUrl] = useState();
     // 渲染後取得一般獎項圖片的 url
     useEffect(() => {
-        axios.get('http://127.0.0.1:5000/fashion-box-img-url')
+        axios.get(FASHIONBOX_IMG_API_URL)
             .then((response) => {
                 // url list 存在 itemUrlData
                 setItemUrl(response.data.item_info);
@@ -85,7 +88,7 @@ const HandleClickFashionBox = () => {
 
     // 渲染後先執行抽獎動作一次 => 避免第一次抽獎拿不到資料顯示 Null
     useEffect(() => {
-        axios.get('http://127.0.0.1:5000/draw-fashion-box')
+        axios.get(FASHIONBOX_DRAW_API_URL)
             .then((response) => {
                 // 不是 json 直接拿 response.data 
                 setItem(response.data);
@@ -93,7 +96,7 @@ const HandleClickFashionBox = () => {
     }, []);
     // 小視窗彈出來後按抽獎
     const handleDrawFashionBoxClick = () => {
-        axios.get('http://127.0.0.1:5000/draw-fashion-box')
+        axios.get(FASHIONBOX_DRAW_API_URL)
             .then((response) => {
                 // 不是 json 直接拿可以 response.data 
                 // 從 api 取得抽出的物品存在 item
@@ -136,6 +139,7 @@ const HandleClickFashionBox = () => {
             >
                 <div className="icon-img">
                     <img src='http://gametsg.techbang.com/maplestory/icon_item/cd1d4ea695bbbd48cdb8642b57696cd6.png'
+                        alt="時尚隨機箱"
                         onDoubleClick={() => {
                             doubleClickFashionBoxIcon();
                         }}
