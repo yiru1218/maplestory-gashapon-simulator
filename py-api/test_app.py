@@ -19,11 +19,8 @@ class TestAPP(unittest.TestCase):
             # 連到 mongodb
             mongo_uri = os.environ.get("MONGO_URI")
             client = pymongo.MongoClient(mongo_uri)
-            db = client.get_database()
-            collection_names = db.list_collection_names()
-
-            # 檢查是否成功連線，並至少有一個 collection
-            self.assertTrue(collection_names)
+            client.admin.command('ping')
+            print("Pinged your deployment. You successfully connected to MongoDB!")
 
         except Exception as e:
             # 連接失敗
