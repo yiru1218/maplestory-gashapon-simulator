@@ -18,8 +18,9 @@ jobs:
   # This workflow contains a single job called "test"
   # test
   test:
-    runs-on: windows-latest
-    
+    runs-on: ubuntu-latest
+    env:
+      MONGO_URI: ${{ secrets.MONGO_URI }} # 引用 Repository secrets
     steps:
       # 檢查 Code
       - name: Checkout code
