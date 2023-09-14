@@ -9,9 +9,6 @@ COPY app.py ./
 COPY itempool.py ./
 COPY requirements.txt ./
 
-# 接收 GitHub Actions 的環境變數 
-ENV MONGO_URI=${MONGO_URI}
-
 # 安裝需要套件
 RUN pip install -r requirements.txt
 
