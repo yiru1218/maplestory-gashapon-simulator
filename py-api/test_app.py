@@ -1,7 +1,8 @@
 import unittest
 from app import app
 
-class TestAPP:
+# 測試用 class 需要繼承自unittest.TestCase，以便使用unittest測試框架的功能
+class TestAPP(unittest.TestCase):
     # 測試前先建立 app
     def setUp(self):
         self.app = app.test_client()
